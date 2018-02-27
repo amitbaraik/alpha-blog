@@ -8,8 +8,6 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
-# Use Postgres on Heroku as DB
-gem 'pg'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -43,6 +41,9 @@ group :development, :test do
   gem 'sqlite3'
 end
 
+group :production do
+  gem 'pg', '~> 0.18'
+end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
