@@ -10,9 +10,15 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
-  database: db/development.sqlite3
-
+  #<<: *default
+  #database: db/development.sqlite3
+  adapter: postgresql
+  pool: 5
+  encoding: unicode
+  database: alphablog
+  host: localhost
+  username: postgres
+  password: golu
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
@@ -20,13 +26,11 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-production:
-  <<: *default
   production:
   adapter: postgresql
   pool: 5
   encoding: unicode
-  database:
+  database: alphablog
   host:
-  username:
-  password: 
+  username: postgres
+  password: golu
