@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
-
   def new
     @article= Article.new
   end
@@ -15,7 +14,6 @@ class ArticlesController < ApplicationController
     if @article.save
       flash[:notice]= "The article was created successfully"
       redirect_to article_path(@article)
-
     else
       render 'new'
       #redirect_to_article_path(@article)
@@ -34,7 +32,14 @@ class ArticlesController < ApplicationController
     else
       render 'edit'
     end
+  end
 
+
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+      flash[:notice]= "The article was Deleted successfully"
+        redirect_to articles_path
   end
 
   def show
